@@ -1,0 +1,24 @@
+Trains the lipreading model using preprocessed frame–phoneme tensor pairs and CTC loss. Supports both GRU-based and ViT-based models via import toggle.
+
+How It Works:
+
+-Loads phoneme vocabulary.
+-Loads .pt tensor dataset from disk.
+-Initializes model, CTC loss, and optimizer.
+-Resumes from checkpoint if available.
+-Trains in epochs with batch-level logging.
+-Saves checkpoints periodically and at each epoch end.
+
+Key Features:
+
+Supports resume from last saved state.
+Gracefully handles faulty samples using SafeDataset.
+Compatible with both GRU and ViT models:
+To switch models, change the import:
+
+from model import LipReadingModel  # For GRU
+from model_vit import LipReadingViTModel as LipReadingModel  # For ViT
+
+
+Typical Use Case:
+Used after preprocessing to train the phoneme-level lipreading model on a cached dataset efficiently and reliably.

@@ -1,0 +1,18 @@
+Converts .TextGrid alignment files into simplified .phn files, which list phonemes with their start and end times. This format is easier to work with during model training and evaluation.
+
+How It Works:
+
+For each .TextGrid file:
+*Extracts the 'phones' tier.
+*Writes phoneme label, start time, and end time into a .phn file.
+
+The resulting .phn files are stored in the specified output directory.
+
+Output Format (.phn):
+
+SIL 0.0 0.12
+DH 0.12 0.25
+AH 0.25 0.45
+
+Typical Use Case:
+Used after running Montreal Forced Aligner (MFA) to convert alignment results into a custom phoneme format required for training a lipreading model.

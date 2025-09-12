@@ -1,0 +1,23 @@
+A lightweight test script to verify phoneme-to-frame alignment for a single video. It maps each frame image to the corresponding phoneme label based on timestamp.
+
+How It Works:
+
+-Loads phoneme alignments from a .phn file.
+-Lists all .jpg frames for one video.
+-Calculates timestamps for each frame.
+-Matches each timestamp to a phoneme interval.
+-Prints each frame's name alongside the matched phoneme.
+
+Output Example:
+
+frame_000.jpg → SIL  
+frame_001.jpg → DH  
+frame_002.jpg → AH  
+...
+
+
+Typical Use Case:
+Used for debugging or visual inspection to ensure phoneme alignments are correctly matched to video frames before launching full dataset processing.
+
+Note:
+Although cv2 is imported, it’s not used in this version of the script and can be safely removed unless needed for image display.

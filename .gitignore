@@ -1,0 +1,20 @@
+# Ignore the data folder (too large for GitHub)
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Model checkpoints / large binaries
+*.pt
+*.pth

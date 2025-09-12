@@ -1,0 +1,18 @@
+Extracts phoneme-level alignments from a .TextGrid file produced by alignment tools such as Montreal Forced Aligner (MFA). Saves the extracted phonemes and their time intervals to a human-readable .phn file.
+
+How It Works:
+
+-Loads the 'phones' tier from the .TextGrid file.
+-Extracts all non-empty phoneme intervals (start time, end time, label).
+-Saves them as:
+
+**PHONEME START_TIME END_TIME**
+
+Can either print results to console or save to file depending on usage.
+
+Output:
+
+A .phn file with aligned phonemes for one utterance.
+
+Typical Use Case:
+Used after phoneme alignment with MFA to convert .TextGrid annotations into a simpler .phn format for further processing (e.g., training a lipreading model).

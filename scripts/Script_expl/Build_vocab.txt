@@ -1,0 +1,12 @@
+Script Name: build_phoneme_vocab.py
+
+Purpose:
+This script builds a phoneme vocabulary from a directory of aligned JSON files, each containing phoneme sequences. It extracts all unique phonemes, adds a special <blank> token for use with CTC loss, and generates mappings between phonemes and numerical indices. The resulting mapping is saved as a JSON file (phoneme_vocab.json) for later use in model training or decoding.
+
+Key Output:
+
+A list of unique phonemes including the <blank> token.
+
+Two mapping dictionaries: phoneme2idx and idx2phoneme.
+
+A JSON file (phoneme_vocab.json) storing the phoneme2idx mapping.

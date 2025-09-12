@@ -1,0 +1,24 @@
+This script aligns video frames (mouth images) with phoneme intervals to generate training-ready JSON files. Each frame is matched to the phoneme being spoken at its timestamp.
+
+How It Works:
+
+-Reads cropped frame sequences (e.g. from E:\cropped_validation).
+-Loads corresponding .phn phoneme alignment files.
+-For each frame, computes its timestamp using a fixed frame rate (e.g. 25 FPS).
+-Matches the timestamp to a phoneme label based on alignment intervals.
+-Assigns "SIL" (silence) if no phoneme is active.
+-Saves a JSON file for each video with:
+
+{
+  "frames": ["frame_000.jpg", "frame_001.jpg", ...],
+  "phonemes": ["SIL", "DH", "AH", ...]
+}
+
+
+Output:
+
+-One .json file per video in the json_output directory.
+-Aligned frame-to-phoneme pairs, ready for dataset loading and model training.
+
+Typical Use Case:
+Used before model training to create phoneme-labeled frame sequences for supervised learning.

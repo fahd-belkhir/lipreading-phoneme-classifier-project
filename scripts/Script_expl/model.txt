@@ -1,0 +1,23 @@
+Defines the lipreading model architecture that maps video frames of the mouth region to a sequence of phoneme class predictions.
+
+Model Architecture:
+
+Component	Description
+
+CNN Encoder	2 convolutional layers with batch norm and ReLU, followed by adaptive average pooling to extract a 128-dim feature per frame.
+Bi-GRU	                 A single-layer bi-directional GRU processes the sequence of frame features to capture temporal context (output size: 256).
+Linear Classifier	Maps each GRU output timestep to a phoneme class.
+
+Input Shape: (B, T, C, H, W)
+
+B: Batch size
+T: Number of frames
+C: Channels (3 for RGB)
+H, W: Frame dimensions (e.g., 112×112)
+
+Output Shape: (T, B, num_classes)
+
+Compatible with CTC loss used in lipreading tasks.
+
+Use Case:
+Used for training and inference in phoneme-level lipreading, where the model learns to map video sequences to aligned phoneme sequences.

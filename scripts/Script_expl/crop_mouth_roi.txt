@@ -1,0 +1,26 @@
+This script detects faces and extracts the mouth region of interest (ROI) from each frame of a video. It processes all frames in a given directory, crops the mouth region using facial landmarks, resizes the cropped image to 112×112 pixels, and saves the results to a structured output folder.
+
+How It Works:
+
+Detects faces using dlib’s frontal face detector.
+
+Extracts 68 facial landmarks.
+
+Isolates points 48–67, which represent the mouth.
+
+Calculates a bounding box with padding around the mouth.
+
+Crops and resizes to 112×112 for uniform input.
+
+Saves results in the same folder structure.
+
+Typical Use Case:
+Used in preprocessing for lipreading systems to focus on the mouth area, which contains the most relevant visual speech information.
+
+Requirements:
+
+dlib and its 68-point predictor model.
+
+OpenCV (cv2).
+
+A dataset organized into per-video subfolders of frame images.

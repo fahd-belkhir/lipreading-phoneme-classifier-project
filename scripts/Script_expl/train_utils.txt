@@ -1,0 +1,25 @@
+A custom PyTorch collate_fn for batching variable-length sequences of video frames and phoneme labels, preparing them for CTC-based training.
+
+What It Does:
+
+Pads frame sequences (Tᵢ, C, H, W) to shape (B, T_max, C, H, W).
+
+Pads phoneme label sequences (Lᵢ,) to shape (B, L_max).
+
+Returns the padded tensors and their corresponding sequence lengths.
+
+Output:
+
+padded_frames:  (B, T_max, C, H, W)
+padded_phonemes: (B, L_max)
+input_lens:      (B,)
+target_lens:     (B,)
+
+
+Typical Use Case:
+Passed to the DataLoader via:
+
+DataLoader(..., collate_fn=collate_fn)
+
+
+to enable batch training with CTC loss, which needs real input and target lengths.

@@ -1,0 +1,18 @@
+This script extracts audio from a structured dataset of .mp4 videos and flattens the structure by:
+
+*Converting each video into a mono .wav file at 16 kHz using ffmpeg.
+
+*Copying the corresponding .txt transcript file.
+
+*Renaming both outputs with a unique identifier (<folder>_<filename>) to avoid naming conflicts.
+
+*Saving everything in a single output directory.
+
+Typical Use Case:
+Prepares the dataset (like LRS2) for Montreal Forced Aligner (MFA) or other phoneme alignment tools by generating clean, standardized audio + transcript pairs.
+
+Key Output:
+
+*.wav files in output_folder with consistent formatting.
+
+*.txt transcript files renamed to match the audio files.

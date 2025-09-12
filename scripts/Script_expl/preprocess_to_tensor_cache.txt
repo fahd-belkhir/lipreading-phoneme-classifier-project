@@ -1,0 +1,29 @@
+Preprocesses aligned frame–phoneme data into cached .pt files (PyTorch tensors) to enable fast training without real-time decoding or loading from images and JSON.
+
+How It Works:
+
+-Loads aligned frame+phoneme pairs from:
+-JSON files (frames + phonemes)
+-Cropped frame folders
+-Converts each pair into:
+
+A frames_tensor of shape (T, C, H, W)
+
+A phoneme_tensor of shape (L,)
+
+input_len and target_len values
+
+Saves each sample into a .pt file for quick access during training.
+
+Output Format per file:
+
+{
+  'frames': Tensor of shape (T, 3, 112, 112),
+  'phonemes': Tensor of phoneme indices (L,),
+  'input_len': Tensor([T]),
+  'target_len': Tensor([L])
+}
+
+
+Typical Use Case:
+Run this once before training to avoid repeated preprocessing and speed up training. Especially useful for large datasets or deep models where disk I/O and transformation time would be bottlenecks.

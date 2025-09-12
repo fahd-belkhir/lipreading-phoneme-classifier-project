@@ -1,0 +1,21 @@
+Extracts frames from .mp4 videos at a fixed rate (e.g., 25 FPS), and saves them as .jpg images for downstream processing (e.g., lipreading model training).
+
+How It Works:
+
+Traverses a folder containing subfolders of videos.
+
+For each video:
+-Samples frames at the specified frame rate.
+-Saves them into a uniquely named output subfolder.
+-Skips videos that don't exist or are malformed.
+
+Output:
+
+A set of folders named like subdir_filename/, each containing:
+
+frame_000.jpg  
+frame_001.jpg  
+...
+
+
+All frames are sampled uniformly to match the desired frame rate (e.g., 25 fps).

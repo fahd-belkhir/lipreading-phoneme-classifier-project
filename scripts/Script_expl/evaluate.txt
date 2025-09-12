@@ -1,0 +1,30 @@
+Evaluates a trained lipreading model on a validation set by computing the Phoneme Error Rate (PER) using greedy CTC decoding and Levenshtein distance.
+
+How It Works:
+
+Loads a trained model and the phoneme vocabulary.
+
+Runs inference on preprocessed validation data.
+
+Decodes predictions using greedy CTC decoding.
+
+Compares predicted phoneme sequences with ground-truth labels using edit distance.
+
+Computes PER as:
+
+PER=Total Edit Distance /Total Number of Phonemes 
+
+Key Components:
+
+LipReadingModel: model architecture.
+
+CachedTensorDataset: preprocessed tensors.
+
+ctc_greedy_decode(): decodes CTC output.
+
+levenshtein(): computes sequence error.
+
+PER: final metric output.
+
+Typical Use Case:
+Used to benchmark model performance after training and compare checkpoints.
